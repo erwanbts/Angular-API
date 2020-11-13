@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { AppComponent } from '../app.component';
 
@@ -10,6 +10,8 @@ import { AppComponent } from '../app.component';
 export class UsersListComponent implements OnInit {
 
   constructor() { }
+
+  @Input() users: array;
 
   ngOnInit(): void {
 

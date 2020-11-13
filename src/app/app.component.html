@@ -1,5 +1,2 @@
-<app-users-list></app-users-list>
-<ul *ngIf="users">
-  <li *ngFor="let user of users">{{user.name.first}} / {{user.gender}}</li>
-</ul>
+<app-users-list [users]="users"></app-users-list>
 <router-outlet></router-outlet>

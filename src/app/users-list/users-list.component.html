@@ -1,1 +1,3 @@
-<p>users-list works!</p>
+<ul *ngIf="users">
+  <li *ngFor="let user of users">{{user.name.first}} / {{user.gender}}</li>
+</ul>
