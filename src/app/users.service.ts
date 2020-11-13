@@ -10,7 +10,7 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   fetchUsers(): Observable<Object> {
-    return this.http.get('https://randomuser.me/api/?results=20');
+    return this.http.get('https://randomuser.me/api/?nat=fr&&results=20');
   }
 
 }
