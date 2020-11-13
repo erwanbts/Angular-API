@@ -11,7 +11,7 @@ export class UsersListComponent implements OnInit {
 
   constructor() { }
 
-  @Input() users: array;
+  @Input() users: [];
 
   ngOnInit(): void {
 
