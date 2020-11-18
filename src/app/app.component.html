@@ -1,4 +1,9 @@
 <div class="container">
   <app-users-list [users]="users"></app-users-list>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <app-map [users]="users"></app-map>
+    </div>
+  </div>
   <router-outlet></router-outlet>
 </div>
