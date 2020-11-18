@@ -1,5 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
+
 import * as mapboxgl from 'mapbox-gl';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -8,20 +10,29 @@ import * as mapboxgl from 'mapbox-gl';
 export class MapComponent implements OnInit {
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11';
-  lat = 37.75;
-  lng = -122.41;
-  constructor() {
-    navigator.geolocation.getCurrentPosition(
-      pos => { this.lat = pos.latitude, this.lng = pos.longitude} ,
-      error => console.warn(error));
-  }
+  lat = 46.55;
+  lng = 2.2;
+
+  constructor() {}
+
+  @Input() users: [];
+
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    console.log(this.users);
     mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmbGVzcyIsImEiOiJja2huZzZsOXYwcWRqMnZybjA5a3ZlOXNrIn0.Ba2oK5XMWeLgOllIYN-fFA';
       this.map = new mapboxgl.Map({
         container: 'map',
         style: this.style,
-        zoom: 13,
+        zoom: 5,
         center: [this.lng, this.lat]
+    })
+    this.users.forEach(user => {
+      new mapboxgl.Marker()
+        .setLngLat([user.location.coordinates.longitude, user.location.coordinates.latitude])
+        .addTo(this.map);
     });
-  }
+  };
 }

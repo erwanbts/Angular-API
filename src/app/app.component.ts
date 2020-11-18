@@ -13,13 +13,9 @@ export class AppComponent {
 
   ngOnInit() {
     this.getUsers();
-    // this.users$
-    // .subscribe(user => this.listofusers.push(user));
   }
 
   getUsers() {
-    this.usersService.fetchUsers().subscribe(res => this.users = res.results);
-    // .toPromise()
-    // .then(res => this.users$ = res);
+      this.usersService.fetchUsers().subscribe(res => this.users = res.results);
   }
 }
